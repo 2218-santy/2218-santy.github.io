@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pins C&S</title>
+ <link rel="stylesheet" href="style.css">
+<script src="js/scrip.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome para el ícono de WhatsApp -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1 id="header-titulo">Bienvenidos a Pins.C&S</h1>
+
+    <!-- NAV -->
+    <nav>
+      <button data-section="inicio" class="active">Inicio</button>
+      <button data-section="productos">Productos</button>
+      <button data-section="personalizados">Personalizados</button>
+      <button data-section="nosotros">Nosotros</button>
+    </nav>
+
+    <!-- BOTÓN CARRITO -->
+    <button id="btn-carrito" title="Ver carrito">
+      🛒 <span id="contador-carrito" style="display:none;">0</span>
+    </button>
+  </header>
+
+  <!-- SECCIONES -->
+  <section id="inicio" class="active">
+    <div class="contenido-inicio">
+      <h1 id="titulo-principal">Artículos Personalizados. Tu idea, nuestro arte</h1>
+      <h3 id="subtitulo">
+        Transformamos tus ideas en objetos duraderos que cuentan una historia. Ya sea para llevar un recuerdo, un símbolo personal o para proyectar la identidad de tu marca, creamos piezas únicas que te representan.
+      </h3>
+      <p>
+        Somos más que una tienda de artículos personalizados; somos narradores de historias. Entendemos que cada diseño, logo o recuerdo tiene un significado, y nuestra misión es transformarlo en un objeto tangible que pueda ser llevado, regalado o compartido. Nuestros prendedores, llaveros y destapadores son la herramienta perfecta para inmortalizar un momento especial, fortalecer la identidad de tu marca o simplemente expresar tu personalidad de una forma original y duradera.
+      </p>
+      <button id="btn-productos">Ver Productos</button>
+    </div>
+  </section>
+
+  <section id="productos">
+    <h2>Productos</h2>
+    <div class="productos-grid">
+      <div class="producto">
+        <img src="pin1.png" alt="Pin Messi">
+        <p>Pin Messi - $1500</p>
+        <button class="add-to-cart" data-product="Pin Messi" data-price="1500">Agregar al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="pin2.png" alt="Pin Maradona">
+        <p>Pin Maradona - $1800</p>
+        <button class="add-to-cart" data-product="Pin Maradona" data-price="1800">Agregar al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="pin3.png" alt="Pin Boca">
+        <p>Pin Boca - $1200</p>
+        <button class="add-to-cart" data-product="Pin Boca" data-price="1200">Agregar al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="personalizados">
+    <h2>Personalizados</h2>
+    <p>¿Querés un diseño único? Escribinos y creamos juntos ese accesorio que tenés en mente.</p>
+    <a href="https://www.instagram.com/pins.c.s" target="_blank" class="btn-instagram">Encargar el tuyo</a>
+  </section>
+
+  <section id="nosotros">
+    <div class="contenido-nosotros">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        Todo comenzó con una idea simple: la creencia de que los objetos más pequeños pueden tener el significado más grande. Somos un equipo de apasionados por el diseño y la artesanía, y fundamos este proyecto al notar la necesidad de un servicio que combinara libertad creativa con un proceso de producción impecable.
+      </p>
+      <p>
+        Nuestra misión es clara: ser tu socio en la creación de artículos personalizados de la más alta calidad. Transformamos tus ideas en prendedores, llaveros, destapadores y abrochadoras duraderos, que no solo se ven bien, sino que también cuentan una historia.
+      </p>
+      <p>
+        Creemos que cada proyecto, grande o pequeño, merece un resultado excepcional. Ya sea para inmortalizar un recuerdo personal o para proyectar la identidad de tu marca, estamos aquí para convertir tu visión en una pieza de arte tangible.
+      </p>
+      <a href="https://www.instagram.com/pins.c.s" target="_blank" class="btn-instagram">
+        <img src="ig-logo.png" alt="Instagram" class="icono-ig"> Síguenos en Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- CARRITO -->
+  <div id="carrito">
+    <button id="cerrar-carrito">✖</button>
+    <h3>Carrito</h3>
+    <ul id="lista-carrito"></ul>
+    <p id="total">Total: $0</p>
+
+    <!-- Input de nombre y apellido -->
+    <input type="text" id="nombre-cliente" placeholder="Nombre y apellido" style="width: 90%; padding:10px; margin:10px 0; border-radius:8px; border:none; font-size:1rem;">
+
+    <button id="vaciar-carrito">Vaciar carrito</button>
+    <button id="finalizar-compra"><i class="fab fa-whatsapp"></i> Finalizar compra</button>
+  </div>
+
+  <script src="scrip.js"></script>
+</body>
+</html>
