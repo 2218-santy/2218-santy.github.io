@@ -27,6 +27,7 @@ const listaCarrito = document.getElementById("lista-carrito");
 const total = document.getElementById("total");
 const contadorCarrito = document.getElementById("contador-carrito");
 const nombreInput = document.getElementById("nombre-cliente");
+const linkWhatsapp = document.getElementById("link-whatsapp");
 
 let carritoItems = [];
 
@@ -53,7 +54,9 @@ document.getElementById("vaciar-carrito").addEventListener("click", () => {
 });
 
 // ================= FINALIZAR COMPRA POR WHATSAPP =================
-document.getElementById("finalizar-compra").addEventListener("click", () => {
+linkWhatsapp.addEventListener("click", (e) => {
+  e.preventDefault();
+
   if (carritoItems.length === 0) {
     alert("Tu carrito está vacío 😅");
     return;
@@ -65,32 +68,31 @@ document.getElementById("finalizar-compra").addEventListener("click", () => {
     return;
   }
 
-  const telefono = "5493415118842"; // cambia a tu número
-  let mensaje = `¡Hola! Soy ${nombreCliente} y quiero hacer este pedido:\n\n`;
-  let totalCompra = 0;
+  const telefono = "5493415318922"; // tu número
+  let mensaje = `Hola! Soy ${nombreCliente}.\nQuiero hacer este pedido:\n`;
 
+  let totalCompra = 0;
   carritoItems.forEach(item => {
-    mensaje += `- ${item.producto} - $${item.precio}\n`;
+    mensaje += `- ${item.producto} : $${item.precio}\n`;
     totalCompra += item.precio;
   });
 
-  mensaje += `\n💰 Total: $${totalCompra}`;
-  const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
+  mensaje += `Total: $${totalCompra}`;
+
+  linkWhatsapp.href = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+  window.open(linkWhatsapp.href, "_blank");
 });
 
-// ================= FUNCION PARA ACTUALIZAR CARRITO =================
+// ================= FUNCIONES AUXILIARES =================
 function actualizarCarrito() {
   listaCarrito.innerHTML = "";
   let suma = 0;
-
   carritoItems.forEach(item => {
     const li = document.createElement("li");
     li.textContent = `${item.producto} - $${item.precio}`;
     listaCarrito.appendChild(li);
     suma += item.precio;
   });
-
   total.textContent = `Total: $${suma}`;
 
   if (carritoItems.length > 0) {
